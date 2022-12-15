@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('index');
-});
-
-
 
 Route::get('items', 'App\Http\Controllers\ItemsController@index');
+Route::get('items', 'App\Http\Controllers\ItemsController@index');
+Route::get('posts', 'App\Http\Controllers\PostsController@index');
 
 
 // Authentication Routes...
@@ -35,10 +34,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration Routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-Route::get('/tasks', 'TaskController@index');
-Route::post('/task', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
 
 
 Auth::routes();

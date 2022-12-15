@@ -1,4 +1,7 @@
 @include('layouts.app')
+
+
+<div id="items_root"></div>
 <h2 class="text-center"><strong><u>Items</u></strong></h4><br>
 <div class="container-fluid col-10">
   <table class="table table-dark table-striped table-bordered">
@@ -23,4 +26,5 @@
       </tbody>
     </table>
   </div>
+  {{ vite_assets() }}
     
