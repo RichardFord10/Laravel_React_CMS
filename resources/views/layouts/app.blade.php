@@ -43,7 +43,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                    <li class="nav-item ms-2 mt-2 d-flex justify-content-center text-white" id="clock">
  
                     </li>
                         <!-- Authentication Links -->
@@ -80,6 +79,8 @@
                             </li>
                         @endguest
                     </ul>
+                    <li class="nav-item ms-2 mt-2 d-flex justify-content-center text-white" id="clock">
+
                 </div>
             </div>
         </nav>
