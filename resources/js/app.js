@@ -1,6 +1,6 @@
 import './bootstrap';
-
-import './tictactoe.jsx'
+import './items.jsx'
+import './main.jsx'
 import '../css/app.css'; 
 import '../sass/app.scss'
 import './posts/create.jsx'

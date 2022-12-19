@@ -1,11 +1,12 @@
+<script>let items = '{{$data}}';</script>
 @include('layouts.app')
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title>Home</title>
-    {{ vite_assets() }}
 </head>
 <body>
 	<div id="root"></div>
