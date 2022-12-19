@@ -1,46 +1,95 @@
 //items table
 import React from 'react';
 import { createRoot } from 'react-dom/client'
-import DataTable from 'react-data-table-component';
+import DataTable, { createTheme } from 'react-data-table-component';
 
-const table = createRoot(document.getElementById('items_table')); 
-function show_table()
+if(typeof items !== 'undefined')
 {
-    const items_data = JSON.parse(JSON.stringify(items.replace(/&quot;/g,'"')));
-    table.render(items_data);
+
+    const root = createRoot(document.getElementById('root')); 
+    const items_data = JSON.parse(items.replace(/&quot;/g,'"'));
+    var data = [];
+    const columns = [
+        {
+            name: 'Id',
+            selector: row => row.id,
+        },
+        {
+            name: 'Name',
+            selector: row => row.name,
+            sortable: true,
+            
+        },
+        {
+            name: 'Category',
+            selector: row => row.category,
+            sortable: true,
+            
+        },
+        {
+            name: 'Brand',
+            selector: row => row.brand,
+            sortable: true,
+            
+        },
+        {
+            name: 'Category',
+            selector: row => row.color,
+            sortable: true,
+            
+        },
+    ];
     
-}
-
-
-const columns = [
-    {
-        name: 'Title',
-        selector: row => row.title,
-    },
-    {
-        name: 'Year',
-        selector: row => row.year,
-    },
-];
-
-const data = [
-    {
-        id: 1,
-        title: 'Beetlejuice',
-        year: '1988',
-    },
-    {
-        id: 2,
-        title: 'Ghostbusters',
-        year: '1984',
-    },
-]
-
-function MyComponent() {
-    return (
-        <DataTable
+    for(let x = 0; x < items_data.length; x++){
+        data.push(
+            { 
+                id: items_data[x].id,
+                name: items_data[x].name,
+                category: items_data[x].category,
+                brand: items_data[x].brand,
+                color: items_data[x].color
+            }
+            
+            ) 
+        };
+        
+        createTheme('solarized', {
+            text: {
+                primary: 'white',
+                secondary: 'grey',
+            },
+            background: {
+                default: 'black',
+            },
+            context: {
+                background: '#cb4b16',
+                text: '#FFFFFF',
+            },
+            divider: {
+                default: 'white',
+            },
+            action: {
+                button: 'rgba(0,0,0,.54)',
+                hover: 'rgba(0,0,0,.08)',
+                disabled: 'rgba(0,0,0,.12)',
+            },
+        }, 'dark');
+        
+        
+        
+    function ItemsTable() {
+        return (
+            <DataTable
+            
             columns={columns}
             data={data}
-        />
-    );
-};
+            theme="solarized"
+            pagination
+            selectableRows
+            
+            
+            />
+            );
+        };
+    root.render(ItemsTable())
+}

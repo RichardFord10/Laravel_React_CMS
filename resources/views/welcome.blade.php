@@ -1,4 +1,3 @@
-<script>let items = '{{$data}}';</script>
 @include('layouts.app')
 <!DOCTYPE html>
 <html>
