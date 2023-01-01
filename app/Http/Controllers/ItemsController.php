@@ -17,7 +17,7 @@ class ItemsController extends Controller
     {
         $data = Items::all();
 
-        return \view('items/items')->with('data', $data);
+        return \view('items/items')->with('data', json_encode($data));
     }
 
     /**
@@ -85,4 +85,13 @@ class ItemsController extends Controller
     {
         //
     }
+
+
+        /**
+     * Search for items in the items table.
+     *
+     * @param  \App\Models\Items  $items
+     * @return \Illuminate\Http\Response
+     */
 }
+

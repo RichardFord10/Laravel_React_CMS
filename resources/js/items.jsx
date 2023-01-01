@@ -2,6 +2,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
 import DataTable, { createTheme } from 'react-data-table-component';
+import DataTableExtensions from "react-data-table-component-extensions";
+import styled, { css } from 'styled-components'
+import 'react-data-table-component-extensions/dist/index.css';
+
 
 if(typeof items !== 'undefined')
 {
@@ -13,6 +17,8 @@ if(typeof items !== 'undefined')
         {
             name: 'Id',
             selector: row => row.id,
+            sortable: true,
+
         },
         {
             name: 'Name',
@@ -79,6 +85,13 @@ if(typeof items !== 'undefined')
         
     function ItemsTable() {
         return (
+            <DataTableExtensions
+              columns={columns}
+              data={data}
+              print={false}
+              export={false}
+              filter={true}
+            >
             <DataTable
             
             columns={columns}
@@ -89,6 +102,8 @@ if(typeof items !== 'undefined')
             
             
             />
+            </DataTableExtensions>
+
             );
         };
     root.render(ItemsTable())
