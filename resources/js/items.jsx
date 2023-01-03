@@ -1,5 +1,6 @@
 //items table
 import React from 'react';
+import { useState } from "react";
 import { createRoot } from 'react-dom/client'
 import DataTable, { createTheme } from 'react-data-table-component';
 import DataTableExtensions from "react-data-table-component-extensions";
@@ -61,18 +62,18 @@ if(typeof items !== 'undefined')
         
         createTheme('solarized', {
             text: {
-                primary: 'white',
-                secondary: 'grey',
+                primary: '#268bd2',
+                secondary: '#2aa198',
             },
             background: {
-                default: 'black',
+                default: '#002b36',
             },
             context: {
                 background: '#cb4b16',
                 text: '#FFFFFF',
             },
             divider: {
-                default: 'white',
+                default: '#073642',
             },
             action: {
                 button: 'rgba(0,0,0,.54)',
@@ -96,7 +97,7 @@ if(typeof items !== 'undefined')
             
             columns={columns}
             data={data}
-            theme="solarized"
+            theme="dark"
             pagination
             selectableRows
             
@@ -106,5 +107,42 @@ if(typeof items !== 'undefined')
 
             );
         };
-    root.render(ItemsTable())
-}
+        //render items table
+        root.render(ItemsTable())
+        
+        
+    }
+
+    //start charts
+    export default function App() {
+        const [chartData, setChartData] = useState({
+          labels: Data.map((data) => data.color), 
+          datasets: [
+            {
+              label: "Users Gained ",
+              data: Data.map((data) => data.userGain),
+              backgroundColor: [
+                "rgba(75,192,192,1)",
+                "#ecf0f1",
+                "#50AF95",
+                "#f3ba2f",
+                "#2a71d0"
+              ],
+              borderColor: "black",
+              borderWidth: 2
+            }
+          ]
+        });
+      
+        return (
+          <div className="App">
+            <p>Using Chart.js in React</p>
+          </div>
+        );
+      }
+
+
+
+
+
+

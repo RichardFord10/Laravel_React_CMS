@@ -48,4 +48,8 @@ body {
   .game-info {
     margin-left: 20px;
   }
-  
+
+  div.data-table-extensions > div.data-table-extensions-filter > label
+  {
+    color: black;
+  }
